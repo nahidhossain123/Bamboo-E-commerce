@@ -1,0 +1,61 @@
+.case-study-goal{
+    background-color: var(--color-green);
+    min-height: 100vh;
+}
+
+.case-study-goal-container .case-study-text{
+    margin-top: 82px;
+    display: flex;
+    width: 100%;
+    gap: 201px;
+}
+.case-study-goal-container .case-study-text p{
+    max-width: 397px;
+}
+.case-study-goal-container .case-study-text p span{
+    display: block;
+}
+.case-study-goal-container .case-study-text p span:first-child{
+    font-family: var(--font-open-sans);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 39px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.05em;
+    color: #30E3CA;
+}
+.case-study-goal-container .case-study-text p span:last-child{
+    font-family: var(--font-open-sans);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 36px;
+    color: #F5F5F5;
+}
+
+@media screen and (max-width:850px) {
+    .case-study-goal-container .case-study-text {
+        gap: 30px;
+    }
+    .case-study-goal {
+        padding-inline: 1rem;
+    }
+}
+@media screen and (max-width:500px) {
+    .case-study-title-container .case-study-title-text span {
+        font-size: 80px;
+    }
+    .case-study-goal-container .case-study-text {
+        flex-wrap: wrap;
+    }
+    .case-study-goal-container .case-study-text {
+        margin-top: 30px;
+    }
+    .case-study-goal-container .case-study-text p span:last-child {  
+        font-size: 18px;
+        line-height: 28px;
+        text-align: justify;
+    }
+}

@@ -1,0 +1,14 @@
+.btn-container{
+    height: fit-content !important;
+}
+.btn-container button{
+    border: none;
+    background: var(--color-yellow);
+    border-radius: 30px;
+    padding: 1rem 3rem;
+    font-family: var(--font-inter);
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.05em;
+    color: var(--color-black2);
+}

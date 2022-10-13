@@ -1,0 +1,57 @@
+.image{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+.image img{
+    outline: 3px solid transparent;
+    transition: 0.5s ease-in-out;
+    border-radius: 11px;
+}
+
+
+.overlay{
+    position: absolute;
+    bottom: 32px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    padding: 14px 32px;
+    background: linear-gradient(0deg, #181813 0%, rgba(24, 24, 19, 0) 174.29%);
+    border-radius: 0px 0px 12px 12px;
+    opacity: 0;
+    transition: 1s;
+}
+.overlay div{
+    width: 60%;
+}
+.image:hover .overlay{
+    opacity: 1;
+    transition: 1s;
+}
+.image:hover img{
+   outline: 3px solid orange;
+   border: none;
+}
+
+.overlay span:first-child {
+    font-family: var(--font-Jacq);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 38px;
+    color: #FFFFFF;
+}
+/*
+.overlay span:last-child {
+    right: 32px;
+    bottom: -5px;
+    position: absolute;
+}*/
+
+.overlay span:last-child img {
+    background: var(--color-yellow);
+    padding: 13px;
+    border-radius: 50%;
+    margin-bottom: 0;
+}

@@ -1,0 +1,35 @@
+.social-links{
+    display: flex;
+    align-items: center;
+}
+.social-links span:first-child{
+    font-family: var(--font-Inter);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 26px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.05em;
+    color: #F2F2F2;
+    margin-right: 10px;
+}
+.social-links span:not(:first-child){
+    color: #FFFFFF;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+.social-links span:nth-child(2){
+    background-color: #3B5998;
+}
+.social-links span:nth-child(3){
+    background-color: #55ACEE;
+}
+.social-links span:nth-child(4){
+    background-color: #FFFFFF;
+    color: #DADADA;
+}

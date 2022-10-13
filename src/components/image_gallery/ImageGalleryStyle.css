@@ -1,0 +1,21 @@
+.gallery-container{
+    columns: 3 245px;
+    gap: 2rem;
+    margin-bottom: 8px;
+    padding-inline: 1rem;
+}
+.gallery-container img{
+    margin-bottom: 2rem;
+    border-radius: 11px;
+    width: 100%;
+}
+
+.gallery-container a:nth-child(5){
+    padding-top: 30px;
+}
+
+.gallery .btn-container{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}

@@ -1,0 +1,35 @@
+.case-study-title-container{
+    max-width: 600px;
+}
+.case-study-title-container .title-image{
+    display: flex;
+    align-items: center;
+    padding-top: 34px;
+    margin-left: auto;
+    max-width: 540px;
+}
+.case-study-title-container .title-image span{
+    font-family: var(--font-Merr);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 54px;
+    display: flex;
+    align-items: center;
+    color: #F5F5F5;
+}
+.case-study-title-container .case-study-title-text span{
+    font-family: var(--font-Merr);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 96px;
+    line-height: 145px;
+    display: flex;
+    align-items: center;
+    color: #F5F5F5;
+    margin-left: auto;
+    z-index: 10;
+    display: block;
+    width: fit-content;
+}
+

@@ -1,0 +1,130 @@
+.carousel-image img{
+    width: 100%;
+}
+
+.slick-next:before {
+    content: '\f105' !important;
+    font-family: "FontAwesome" !important;
+    color: #000 !important;
+    font-size: 30px !important;
+}
+
+.slick-prev::before {
+    content: '\f053' !important;
+    font-family: "FontAwesome" !important;
+    color: #000 !important;
+    font-size: 30px !important;
+}
+
+.slick-prev, .slick-next {
+    width: 98px !important;
+    height: 98px !important;
+    border-radius: 50% !important;
+    border: 2px solid #000 !important;
+    z-index: 5;
+    transition: 0.5s ease-in-out;
+}
+.slick-prev:hover, .slick-next:hover {
+    background-color: rgb(238, 238, 238) !important;
+    transform: translate(0, -50%) scale(1.2);
+}
+
+.slick-next {
+    right: 46px !important;
+}
+.slick-prev {
+    left: 46px !important;
+}
+
+.slick-slide {
+    height: 676px !important;
+}
+.slick-slide div{
+    height: 100%;
+}
+.slick-slide div div{
+    height: 100%;
+}
+.slick-slide div div img{
+    height: 100%;
+}
+
+.slick-dots {
+    bottom: 46px !important;
+}
+
+.slick-dots li button:before {
+    opacity: 0 !important;
+}
+
+.slick-dots li.slick-active button:before {
+    opacity: 1 !important;
+    color: #FFF !important;
+    font-size: 20px;
+    line-height: 18px;
+    left: -2px;
+}
+
+.slick-dots li {
+    border: 2px solid #FFF;
+    border-radius: 50%;
+}
+
+.carousel-image{
+    position: relative;
+}
+
+.info-container{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.info-container .title{
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    font-family: var(--font-inter);
+}
+.info-container .title-bold{
+    font-size: 42px;
+    font-weight: 400;
+    font-family: var(--font-Merr);
+}
+.info-container p{
+    display: flex;
+    flex-direction: column;
+ 
+    text-align: center;
+    font-size: 24px;
+    font-weight: 400;
+    font-family: var(--font-inter);                
+}
+
+@media only  screen and (max-width:1250px){
+    .slick-prev, .slick-next {
+        width: 50px !important;
+        height: 50px !important;
+    }
+}
+@media only  screen and (max-width:980px){
+    .info-container .title-bold {
+        font-size: 25px;
+    }
+
+    .info-container p {
+        font-size: 18px;
+    }
+
+    .btn-container button {
+        font-size: 14px;
+    }
+}

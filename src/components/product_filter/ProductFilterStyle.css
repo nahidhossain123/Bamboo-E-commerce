@@ -1,0 +1,113 @@
+.product-filter{
+    padding: 71px 0 190px 0;
+    background: #F7F7F7;
+}
+
+.filter-nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.filter-nav ul{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+}
+.filter-nav ul li{
+    margin: 1rem;
+}
+.filter-nav ul button{
+    border:none;
+    padding: 5px 1rem;
+    background-color: transparent;
+    font-family: var(--font-Inter);
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 35px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.05em;
+    color: var(--color-black2);
+    text-transform: uppercase;
+}
+.filter-nav ul .active{
+    position: relative;
+}
+
+.filter-nav ul .active::after {
+    content: '';
+    width: 60px;
+    height: 4px;
+    background: var(--color-yellow);
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: auto;
+}
+
+.filter-image-container {
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+}
+.filter-image-container .filter-images {
+    display: flex;
+    overflow: auto;
+    padding:2rem 0;
+    width: 100%;
+    flex-grow: 1;
+    transition: 1s ease-in-out;
+}
+.filter-image-container .filter-images img{
+    --width: calc((100%/3) - 26.66px);
+    flex: 0 0 var(--width);
+    max-width: var(--width);
+    aspect-ratio: 19/9;
+}
+.filter-image-container .filter-images img:nth-child(2n){
+    margin: 0 40px;
+}
+.filter-image-container .filter-images::-webkit-scrollbar {
+   height: 1.5vh;
+}
+.filter-image-container .filter-images::-webkit-scrollbar-track {
+   background-color: var(--color-light-gray);
+}
+.filter-image-container .filter-images::-webkit-scrollbar-thumb{
+   background-color: var(--color-gray);
+}
+
+@media screen and (max-width:1080px) {
+    .filter-image-container .filter-images img {
+        aspect-ratio: 19/14;
+    }
+}
+@media screen and (max-width:768px) {
+    .filter-image-container .filter-images img {
+        aspect-ratio: 19/16;
+    }
+    .filter-nav ul button {
+        font-size: 16px;
+    }
+    .filter-nav ul li {
+        margin: 0; 
+    }
+}
+@media screen and (max-width:570px) {
+    .filter-image-container .filter-images img:nth-child(2n) {
+        margin: 0 1rem;
+    }
+
+    .filter-nav ul button {
+        font-size: 13px;
+    }
+
+    .filter-image-container .filter-images img {
+        --width: calc((100%/2) - 26.66px);
+        aspect-ratio: 8/6;
+    }
+    .product-filter {
+        padding: 30px 0 100px 0;
+    }
+}

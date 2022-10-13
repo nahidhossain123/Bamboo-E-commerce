@@ -1,0 +1,90 @@
+
+.CaseBrief-Container{
+    position: relative;
+}
+.CaseBrief-Container img{
+    width: 100%;
+    height: auto;
+}
+
+.logo{
+    z-index: 10;
+}
+
+.CaseBrief-Container span{
+    position: absolute;
+    font-family: var(--font-Merr);
+    font-weight: 700;
+    font-size: 144px;
+    line-height: 217px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    color: #40514E;
+    margin-top: 48px;
+}
+.CaseBrief-Container .logo{
+    position: absolute;
+    margin-top: 48px;
+}
+.casebrief{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.casebrief-text p{
+    font-family: var(--font-open-sans);
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 37px;
+    color: #000000;
+}
+.casebrief-text p:first-child{
+    max-width: 492px;
+}
+.casebrief-text p:last-child{
+    max-width: 507px;
+}
+
+@media screen and (max-width:1200px) {
+
+    .CaseBrief-Container .casebrief  .casebrief-text{
+        margin-top: auto;
+    }
+}
+@media screen and (max-width:1000px) {
+    .CaseBrief-Container span {
+        font-size: 100px;
+    }
+    .casebrief-text p {
+        font-size: 22px;
+        line-height: 24px;
+    }
+}
+@media screen and (max-width:890px) {
+    .CaseBrief-Container span {
+        font-size: 80px;
+    }
+
+    .casebrief-text p {
+        font-size: 20px;
+        line-height: 20px;
+    }
+}
+@media screen and (max-width:768px) {
+    .CaseBrief-Container .casebrief  .casebrief-text p{
+        max-width: 100%;
+        text-align: justify;
+        padding-inline: 1rem;
+    }
+    .CaseBrief-Container .logo {
+        margin-left: 1rem;
+    }
+}
+@media screen and (max-width:500px) {
+    .CaseBrief-Container span {
+        font-size: 60px;
+    }
+}
+
