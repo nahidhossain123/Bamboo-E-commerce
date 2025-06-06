@@ -155,6 +155,7 @@ export const loginController = async(request,response)=>{
 
 export const logoutController = async(request,response)=>{
     try {
+        const userId = request.userId
           const cookiesOption = {
             httpOnly:true,
             secure:true,
@@ -162,6 +163,10 @@ export const logoutController = async(request,response)=>{
         }
         response.clearCookie('accessToken',cookiesOption)
         response.clearCookie('refreshToken',cookiesOption)
+
+        const removeRefreshToken = UserModel.findByIdAndUpdate(userId,{
+            refresh_token:""
+        })
 
          return response.json({
             message:'Logout successful',
@@ -173,6 +178,34 @@ export const logoutController = async(request,response)=>{
             }
         })
     
+    } catch (error) {
+        return response.status(500).json({
+            message:error.message || error,
+            error:true,
+            success:false,
+        })
+    }
+}
+
+export const uploadUserAvatar = async(request,response)=>{
+    try {
+        const userId = request.userId
+        const image = request.file
+        const upload = await uploadUserAvatar(image)
+
+        const updatedUser = await UserModel.findByIdAndUpdate(userId,{
+            avatar:upload.url
+        })
+
+        return response.status(500).json({
+            message:'Success',
+            error:false,
+            success:true,
+            data:{
+                _id:userId,
+                avatar:upload.url
+            }
+        })
     } catch (error) {
         return response.status(500).json({
             message:error.message || error,
