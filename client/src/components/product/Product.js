@@ -90,7 +90,7 @@ const Product = () => {
                 <div className='overlay'>
                     <div className='d-flex align-items-center justify-content-between'>
                       <span>{item.price}</span>
-                      <span><img src={cart_small} alt='cart'/></span>
+                      <button ><img src={cart_small} alt='cart'/></button>
                     </div>
                 </div>
               </div>

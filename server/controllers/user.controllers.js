@@ -1,10 +1,12 @@
-import sendEmail from "../config/sendEmail";
-import UserModel from "../models/user.model";
+
+
 import bcryptjs from "bcryptjs"
-import verifyEmailTemplate from "../utils/verifyEmailTemplate";
-import generateAccessToken from "../utils/generateAccessToken";
-import generateRefreshToken from "../utils/generateRefreshToken";
-import generateOTP from "../utils/generateOtp";
+import verifyEmailTemplate from "../utils/verifyEmailTemplate.js";
+import generateAccessToken from "../utils/generateAccessToken.js";
+import generateRefreshToken from "../utils/generateRefreshToken.js";
+import generateOTP from "../utils/generateOtp.js";
+import sendEmail from "../config/sendEmail.js";
+import UserModel from "../models/user.model.js";
 
 export const registerUserController = async (request, response) => {
     try {

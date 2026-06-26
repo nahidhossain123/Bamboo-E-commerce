@@ -1,0 +1,39 @@
+.address-card {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+
+    background: white;
+    padding: 22px;
+
+    border-radius: 18px;
+    border: 2px solid transparent;
+
+    cursor: pointer;
+    transition: .3s;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,.05);
+}
+
+.address-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0,0,0,.08);
+}
+
+.address-card.active {
+    border-color: #2563eb;
+}
+
+.address-card input {
+    margin-top: 5px;
+}
+
+.address-card h4 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.address-card p {
+    color: #666;
+    line-height: 1.7;
+}

@@ -5,6 +5,7 @@ import logo from '../../media/Logo.png';
 import cart from '../../media/shopping-cart.png';
 import search from '../../media/search.png';
 import { Link, NavLink } from 'react-router-dom';
+import Cart from '../cart/Cart';
 
 const Navbar = () => {
     const nav = useRef();
@@ -75,10 +76,10 @@ const Navbar = () => {
                 <div ref={searchRef} className='search-input'>
                     <input type="text" name="search" placeholder="search..."/>
                 </div>
-                <img onClick={handelCart} src={cart} alt="cart" />
-                <div ref={cartRef} className='cart-details'>
-                    <span>Your Cart Is Empty</span>
-                </div>
+                <NavLink onClick={CloseMenu} to="/cart">
+                    <img src={cart} alt="cart" />
+                </NavLink>
+                
             </div>
         </div>
     </div>

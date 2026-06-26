@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f5f7fb;
+    font-family: "Inter", sans-serif;
+}
+
+.checkout-page {
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 0 20px;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 35px;
+}
+
+.checkout-left {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+      background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.05);
+}
+
+.checkout-left h2 {
+    font-size: 30px;
+    color: #222;
+}
+
+.add-address-btn {
+    padding: 16px;
+    border: 2px dashed #d6d6d6;
+    background: white;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: .3s;
+}
+
+.add-address-btn:hover {
+    border-color: #2563eb;
+    color: #2563eb;
+}

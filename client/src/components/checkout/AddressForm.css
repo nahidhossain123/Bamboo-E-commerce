@@ -1,0 +1,59 @@
+.address-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.address-form input::placeholder {
+    color: #9ca3af;
+}
+.address-form input {
+    width: 100%;
+    height: 56px;
+
+    padding: 0 18px;
+
+    border: 1px solid #ddd;
+    border-radius: 14px;
+
+    outline: none;
+
+    transition: .3s;
+}
+
+.address-form input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(37,99,235,.12);
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 18px;
+}
+
+.btn-group {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-group button {
+    flex: 1;
+    height: 54px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+}
+
+.btn-group button:first-child {
+    background: #2563eb;
+    color: white;
+}
+
+.btn-group button:last-child {
+    background: #efefef;
+}

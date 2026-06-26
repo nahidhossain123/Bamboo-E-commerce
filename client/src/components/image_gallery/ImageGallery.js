@@ -7,17 +7,6 @@ import { getProduct } from "../../productSlice";
 import axios, { isCancel, AxiosError } from "axios";
 
 const ImageGallery = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    const getProdutApi = async () => {
-      const response = await axios.post("https://fakestoreapi.com/auth/login", {
-        username: "mor_2314",
-        password: "83r5^_",
-      });
-      console.log("LoginResult", response);
-    };
-    getProdutApi();
-  }, []);
   return (
     <div className="gallery">
       <span className="main-title section-padding">Featured Product</span>

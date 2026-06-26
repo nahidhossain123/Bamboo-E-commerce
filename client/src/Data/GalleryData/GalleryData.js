@@ -7,10 +7,6 @@ import img6 from '../../media/Product 5.png';
 import img7 from '../../media/Product 8.png';
 import img8 from '../../media/Product 9.png';
 
-
-
-
-
 export const Gl_data = [
     {
         id:"1",
