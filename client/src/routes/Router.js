@@ -9,6 +9,8 @@ import Checkout from "../components/checkout/Checkout";
 import Login from "../components/auth/Login";
 import Register from "../components/auth/Register";
 import ForgotPassword from "../components/auth/ForgetPassword";
+import OTPVerification from "../components/auth/OTPVerification";
+import ResetPassword from "../components/auth/ResetPassword";
 
 const Router = () => {
   return (
@@ -21,6 +23,8 @@ const Router = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/otp-verification" element={<OTPVerification />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

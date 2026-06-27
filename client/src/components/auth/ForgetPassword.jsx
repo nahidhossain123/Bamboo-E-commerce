@@ -1,12 +1,37 @@
+import { useNavigate } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
 import "./ForgotPassword.css";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { forgotPasswordThunk } from "../../features/auth/authThunks";
+
 
 const ForgotPassword = () => {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle forgot password request
-  };
+    const dispatch = useDispatch();
+      const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+ const handleSubmit = async (e) => {
+  e.preventDefault();
 
+  const resultAction = await dispatch(
+    forgotPasswordThunk({
+      email,
+    })
+  );
+
+  if (forgotPasswordThunk.fulfilled.match(resultAction)) {
+    navigate("/otp-verification", {
+      state: {
+        email,
+      },
+    });
+  }
+
+  // Optional: Handle error
+  if (forgotPasswordThunk.rejected.match(resultAction)) {
+    console.log(resultAction.payload);
+  }
+};
   return (
    <div>
     <Navbar />
@@ -25,6 +50,8 @@ const ForgotPassword = () => {
               type="email"
               placeholder="Enter your email"
               required
+               value={email}
+        onChange={(e) => setEmail(e.target.value)}
             />
           </div>
 
@@ -33,7 +60,7 @@ const ForgotPassword = () => {
           </button>
 
           <p className="back-login">
-            Remember your password? <a href="/">Back to Login</a>
+            Remember your password? <a href="/login">Back to Login</a>
           </p>
         </form>
       </div>

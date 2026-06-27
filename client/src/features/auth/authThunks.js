@@ -4,12 +4,15 @@ import {
   registerAPI,
   logoutAPI,
   getProfileAPI,
+  resetPasswordAPI,
+  verifyOTPAPI,
+  forgotPasswordAPI,
 } from "./authAPI";
 
 const getError = (error) =>
   error.response?.data?.message || error.message || "Something went wrong";
 
-export const login = createAsyncThunk(
+export const loginThunk = createAsyncThunk(
   "auth/login",
   async (data, thunkAPI) => {
     try {
@@ -20,7 +23,7 @@ export const login = createAsyncThunk(
   }
 );
 
-export const register = createAsyncThunk(
+export const registerThunk = createAsyncThunk(
   "auth/register",
   async (data, thunkAPI) => {
     try {
@@ -31,7 +34,41 @@ export const register = createAsyncThunk(
   }
 );
 
-export const logout = createAsyncThunk(
+export const forgotPasswordThunk = createAsyncThunk(
+  "auth/forgotPassword",
+  async (data, thunkAPI) => {
+    try {
+      return await forgotPasswordAPI(data);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(getError(error));
+    }
+  }
+);
+
+// Verify OTP
+export const verifyOTPThunk = createAsyncThunk(
+  "auth/verifyOTP",
+  async (data, thunkAPI) => {
+    try {
+      return await verifyOTPAPI(data);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(getError(error));
+    }
+  }
+);
+
+export const resetPasswordThunk = createAsyncThunk(
+  "auth/resetPassword",
+  async (data, thunkAPI) => {
+    try {
+      return await resetPasswordAPI(data);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(getError(error));
+    }
+  }
+);
+
+export const logoutThunk = createAsyncThunk(
   "auth/logout",
   async (_, thunkAPI) => {
     try {
@@ -42,7 +79,7 @@ export const logout = createAsyncThunk(
   }
 );
 
-export const getProfile = createAsyncThunk(
+export const getProfileThunk = createAsyncThunk(
   "auth/profile",
   async (_, thunkAPI) => {
     try {

@@ -95,6 +95,36 @@
   text-decoration: underline;
 }
 
+.error {
+  display: block;
+  color: #ef4444;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+.server-error {
+  color: #dc2626;
+  background: #fee2e2;
+  border: 1px solid #fecaca;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.success-message {
+  color: #166534;
+  background: #dcfce7;
+  border: 1px solid #86efac;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.input-group input.error-input {
+  border-color: #ef4444;
+}
+
 @media (max-width: 480px) {
   .register-card {
     padding: 30px 20px;

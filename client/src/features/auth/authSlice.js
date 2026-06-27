@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
-  login,
-  register,
-  logout,
-  getProfile,
+    loginThunk,
+    registerThunk,
+    logoutThunk,
+    getProfileThunk,
 } from "./authThunks";
 
 const initialState = {
@@ -15,7 +15,7 @@ const initialState = {
 
   error: null,
 
-  success: false,
+  success: null,
 };
 
 const authSlice = createSlice({
@@ -29,7 +29,7 @@ const authSlice = createSlice({
     },
 
     clearSuccess(state) {
-      state.success = false;
+      state.success = null;
     },
   },
 
@@ -38,51 +38,51 @@ const authSlice = createSlice({
 
       // Login
 
-      .addCase(login.pending, (state) => {
+      .addCase(loginThunk.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
 
-      .addCase(login.fulfilled, (state, action) => {
+      .addCase(loginThunk.fulfilled, (state, action) => {
         state.loading = false;
-        state.success = true;
+        state.success = action.payload.message;
 
         state.user = action.payload.user;
         state.isAuthenticated = true;
       })
 
-      .addCase(login.rejected, (state, action) => {
+      .addCase(loginThunk.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       })
 
       // Register
 
-      .addCase(register.pending, (state) => {
+      .addCase(registerThunk.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
 
-      .addCase(register.fulfilled, (state, action) => {
+      .addCase(registerThunk.fulfilled, (state, action) => {
         state.loading = false;
-        state.success = true;
+        state.success = action.payload.message;
 
         state.user = action.payload.user;
         state.isAuthenticated = true;
       })
 
-      .addCase(register.rejected, (state, action) => {
+      .addCase(registerThunk.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       })
 
       // Profile
 
-      .addCase(getProfile.pending, (state) => {
+      .addCase(getProfileThunk.pending, (state) => {
         state.loading = true;
       })
 
-      .addCase(getProfile.fulfilled, (state, action) => {
+      .addCase(getProfileThunk.fulfilled, (state, action) => {
         state.loading = false;
 
         state.user = action.payload.user;
@@ -90,7 +90,7 @@ const authSlice = createSlice({
         state.isAuthenticated = true;
       })
 
-      .addCase(getProfile.rejected, (state) => {
+      .addCase(getProfileThunk.rejected, (state) => {
         state.loading = false;
 
         state.user = null;
@@ -100,7 +100,7 @@ const authSlice = createSlice({
 
       // Logout
 
-      .addCase(logout.fulfilled, (state) => {
+      .addCase(logoutThunk.fulfilled, (state) => {
         state.user = null;
 
         state.isAuthenticated = false;
