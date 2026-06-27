@@ -6,6 +6,8 @@ import cart from '../../media/shopping-cart.png';
 import search from '../../media/search.png';
 import { Link, NavLink } from 'react-router-dom';
 import Cart from '../cart/Cart';
+import { LogIn } from 'lucide-react';
+
 
 const Navbar = () => {
     const nav = useRef();
@@ -78,6 +80,9 @@ const Navbar = () => {
                 </div>
                 <NavLink onClick={CloseMenu} to="/cart">
                     <img src={cart} alt="cart" />
+                </NavLink>
+                <NavLink className="nav-link" onClick={CloseMenu} to="/login">
+                     Login
                 </NavLink>
                 
             </div>

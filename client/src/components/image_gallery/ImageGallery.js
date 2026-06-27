@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./ImageGalleryStyle.css";
-import Button from "../button/Button";
+import Button from "../ui/Button";
 import Product from "../product/Product";
 import { useDispatch } from "react-redux";
 import { getProduct } from "../../productSlice";

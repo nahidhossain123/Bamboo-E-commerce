@@ -1,9 +1,9 @@
 import React from 'react'
 import { Col, Row } from 'react-bootstrap'
 import Slider from 'react-slick'
-import productimage from '../../media/singleproduct.png';
-import Button from '../button/Button';
-import cartimg from '../../media/shopping-cart.png'
+import productImage from '../../media/singleproduct.png';
+import Button from '../ui/Button';
+import cartImg from '../../media/shopping-cart.png'
 import SocialIcon from '../socialicons/SocialIcon';
 import './SingleProductStyle.css';
 
@@ -22,16 +22,16 @@ const SingleProduct = () => {
             <Col lg={6}>
                 <Slider {...settings}>
                     <div className='carousel-image'>
-                        <img src={productimage} alt="carousel" />
+                        <img src={productImage} alt="carousel" />
                     </div>
                     <div className='carousel-image'>
-                        <img src={productimage} alt="carousel" />
+                        <img src={productImage} alt="carousel" />
                     </div>
                     <div className='carousel-image'>
-                        <img src={productimage} alt="carousel" />
+                        <img src={productImage} alt="carousel" />
                     </div>
                     <div className='carousel-image'>
-                        <img src={productimage} alt="carousel" />
+                        <img src={productImage} alt="carousel" />
                     </div>
                 </Slider>
             </Col>
@@ -75,7 +75,7 @@ const SingleProduct = () => {
                             </span>
                         </div>
                         <div className='btn-con my-3 xs-w-100'>
-                            <Button className="xs-w-100" image={cartimg} button_text={'Buy Now'} />
+                            <Button className="xs-w-100" image={cartImg} button_text={'Buy Now'} />
                         </div>
                     </div>
                     <SocialIcon text={'SHARE'}/>

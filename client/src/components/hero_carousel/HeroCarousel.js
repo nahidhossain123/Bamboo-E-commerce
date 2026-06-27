@@ -2,7 +2,7 @@ import React from 'react'
 import Slider from "react-slick";
 import './HeroCarouselStyle.css'
 import hero_image from '../../media/hero image.png'
-import Button from '../button/Button';
+import Button from '../ui/Button';
 
 const HeroCarousel = () => {
     var settings = {
