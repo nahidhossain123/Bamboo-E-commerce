@@ -8,6 +8,7 @@ import generateOTP from "../utils/generateOtp.js";
 import sendEmail from "../config/sendEmail.js";
 import UserModel from "../models/user.model.js";
 
+
 export const registerUserController = async (request, response) => {
     try {
         const { name, email, password } = request.body

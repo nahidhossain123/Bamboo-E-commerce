@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken'
-import UserModel from '../models/user.model'
+import UserModel from '../models/user.model.js'
 
 const generateRefreshToken = async(userid)=>{
     const token = await jwt.sign({id:userid},process.env.SECRET_KEY_REFRESH_TOKEN,{expiresIn:'7d'})
