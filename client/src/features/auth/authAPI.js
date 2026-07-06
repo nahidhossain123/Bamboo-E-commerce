@@ -18,8 +18,8 @@ export const forgotPasswordAPI = async (data) => {
 };
 
 // Verify OTP
-export const verifyOTPAPI = async (data) => {
-  const response = await axiosInstance.post("/user/verify-otp", data);
+export const verifyForgotPasswordOtpAPI = async (data) => {
+  const response = await axiosInstance.post("/user/verify-forgot-password-otp", data);
   return response.data;
 };
 
@@ -36,5 +36,9 @@ export const logoutAPI = async () => {
 
 export const getProfileAPI = async () => {
   const response = await axiosInstance.get("/user/profile");
+  return response.data;
+};
+export const refreshTokenAPI = async (data) => {
+  const response = await axiosInstance.post("/user/refresh-token", data);
   return response.data;
 };

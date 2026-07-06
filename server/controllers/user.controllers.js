@@ -7,6 +7,8 @@ import generateRefreshToken from "../utils/generateRefreshToken.js";
 import generateOTP from "../utils/generateOtp.js";
 import sendEmail from "../config/sendEmail.js";
 import UserModel from "../models/user.model.js";
+import forgotPasswordTemplate from "../utils/forgotPasswordTemplate.js";
+
 
 
 export const registerUserController = async (request, response) => {
@@ -254,7 +256,6 @@ export const updateUserDetailsController = async (request, response) => {
 
 export const forgotPasswordController = async (request, response) => {
     try {
-        const userId = request.userId
         const { email } = request.body
         const user = await UserModel.findOne({ email })
         if (!user) {
@@ -268,13 +269,24 @@ export const forgotPasswordController = async (request, response) => {
 
         const expireTime = new Date() + 60 * 60 * 1000
 
-        const update = await UserModel.findByIdAndUpdate()
+        const update = await UserModel.findByIdAndUpdate(user._id,{
+            forgot_password_otp : otp,
+            forgot_password_expiry : new Date(expireTime).toISOString()
+        })
+       console.log('OTP',otp)
+        await sendEmail({
+            sendTo : email,
+            subject : "Forgot password from Bamboo E-Commerce",
+            html : forgotPasswordTemplate({
+                name : user.name,
+                otp : otp,
+            })
+        })
 
-        return response.status(500).json({
-            message: 'Success',
+        return response.status(200).json({
+            message: 'OTP sent successfully',
             error: false,
             success: true,
-            data: updatedUser
         })
     } catch (error) {
         return response.status(500).json({
@@ -287,7 +299,7 @@ export const forgotPasswordController = async (request, response) => {
 
 export const verifyForgotPasswordOtpController = async (request, response) => {
     try {
-        const userId = request.userId
+        console.log('OtpVerification')
         const { email,otp } = request.body
         const user = await UserModel.findOne({ email })
         if (!user) {
@@ -314,7 +326,7 @@ export const verifyForgotPasswordOtpController = async (request, response) => {
         }
         const update = await UserModel.findByIdAndUpdate()
 
-        return response.status(500).json({
+        return response.json({
             message: 'Verified successfully',
             error: false,
             success: true,
@@ -349,7 +361,7 @@ export const resetPasswordController = async (request, response) => {
             })
         }
 
-        if(newPassword===confirmPassword){
+        if(newPassword!=confirmPassword){
             return response.status(400).json({
                 message:"New password and confirm password are not same",
                 error:true,
@@ -358,11 +370,11 @@ export const resetPasswordController = async (request, response) => {
         }
         const salt = await bcryptjs.genSalt(10);
         const hashPassword = await bcryptjs.hash(newPassword,salt)
-        const update = new UserModel.findOneAndUpdate(user._id,{
+        const update = await UserModel.findOneAndUpdate(user._id,{
             password:hashPassword
         })
 
-        return response.status(500).json({
+        return response.json({
             message: 'Password reset successfully',
             error: false,
             success: true,

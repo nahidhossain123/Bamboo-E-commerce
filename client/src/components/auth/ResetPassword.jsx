@@ -1,7 +1,15 @@
 import { useState } from "react";
 import "./ResetPassword.css";
+import { resetPasswordThunk } from "../../features/auth/authThunks";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 const ResetPassword = () => {
+ const location = useLocation();
+  const email = location?.state?.email;
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     password: "",
     confirmPassword: "",
@@ -14,18 +22,29 @@ const ResetPassword = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    if (formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match");
-      return;
-    }
+  if (formData.password !== formData.confirmPassword) {
+    alert("Passwords do not match");
+    return;
+  }
 
-    console.log(formData);
+  try {
+    await dispatch(
+      resetPasswordThunk({
+        email,
+        newPassword: formData.password,
+        confirmPassword: formData.confirmPassword,
+      })
+    ).unwrap();
 
-    // Dispatch resetPassword thunk here
-  };
+    navigate("/login");
+  } catch (error) {
+    console.error(error);
+    alert(error?.message || "Failed to reset password");
+  }
+};
 
   return (
     <div className="reset-container">

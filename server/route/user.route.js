@@ -11,8 +11,8 @@ userRouter.post('/login',loginController)
 userRouter.get('/logout',auth,logoutController)
 userRouter.put('/upload-avatar',auth,upload.single('avatar'),uploadUserAvatarController)
 userRouter.put('/update-user',updateUserDetailsController)
-userRouter.put('/forgot-password',forgotPasswordController)
-userRouter.put('/verify-forgot-password-otp',verifyForgotPasswordOtpController)
-userRouter.put('/reset-password',resetPasswordController)
+userRouter.post('/forgot-password',forgotPasswordController)
+userRouter.post('/verify-forgot-password-otp',verifyForgotPasswordOtpController)
+userRouter.post('/reset-password',resetPasswordController)
 
 export default userRouter

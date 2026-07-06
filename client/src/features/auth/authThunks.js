@@ -5,7 +5,7 @@ import {
   logoutAPI,
   getProfileAPI,
   resetPasswordAPI,
-  verifyOTPAPI,
+  verifyForgotPasswordOtpAPI,
   forgotPasswordAPI,
 } from "./authAPI";
 
@@ -46,11 +46,11 @@ export const forgotPasswordThunk = createAsyncThunk(
 );
 
 // Verify OTP
-export const verifyOTPThunk = createAsyncThunk(
-  "auth/verifyOTP",
+export const verifyForgotPasswordOtpThunk = createAsyncThunk(
+  "auth/verifyForgotPasswordOtp",
   async (data, thunkAPI) => {
     try {
-      return await verifyOTPAPI(data);
+      return await verifyForgotPasswordOtpAPI(data);
     } catch (error) {
       return thunkAPI.rejectWithValue(getError(error));
     }

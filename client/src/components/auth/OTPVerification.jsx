@@ -2,14 +2,18 @@ import { useRef, useState } from "react";
 import "./OTPVerification.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { verifyForgotPasswordOtpThunk } from "../../features/auth/authThunks";
+import { useDispatch } from "react-redux";
 
 const OTP_LENGTH = 6;
 
 export default function OTPVerification() {
   const [otp, setOtp] = useState(new Array(OTP_LENGTH).fill(""));
+  const location = useLocation();
+  const email = location?.state?.email;
+  const dispatch = useDispatch();
   const inputRefs = useRef([]);
   const navigate = useNavigate();
-  const location = useLocation();
 
   useEffect(() => {
     if(!location?.state && !location?.state?.email) {
@@ -63,17 +67,31 @@ export default function OTPVerification() {
     inputRefs.current[lastIndex].focus();
   };
 
-  const verifyOTP = () => {
-    const code = otp.join("");
+const verifyOTP = async () => {
+  const code = otp.join("");
 
-    if (code.length !== OTP_LENGTH) {
-      alert("Please enter complete OTP");
-      return;
-    }
+  if (code.length !== OTP_LENGTH) {
+    alert("Please enter complete OTP");
+    return;
+  }
 
-    console.log(code);
-    alert(`OTP: ${code}`);
-  };
+  try {
+    await dispatch(
+      verifyForgotPasswordOtpThunk({
+        email,
+        otp: code,
+      })
+    ).unwrap();
+
+    navigate("/reset-password", {
+      state: {
+        email,
+      },
+    });
+  } catch (error) {
+    console.error(error);
+  }
+};
 
   return (
     <div className="otp-container">
